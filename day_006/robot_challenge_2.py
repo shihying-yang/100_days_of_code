@@ -15,7 +15,7 @@ def jump():
     turn_left()
 
 
-# for __ in range(6):
+# for _ in range(6):
 #     jump()
 
 # number_of_hurdles = 6
