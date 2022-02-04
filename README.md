@@ -11,3 +11,6 @@ Day 006 - while loop: Robot Escape Maze Game
 Day 007 - review: ASCII Hangman Game
 Day 008 - list shift, modulo: Digital Caesar Cipher
 Day 009 - dictionary, nested structures: Secret Auction Program
+Day 010 - functions: ASCII calculator
+Day 011 - capstone project: Blackjack
+Day 012 - scope: Number Guessing Game
