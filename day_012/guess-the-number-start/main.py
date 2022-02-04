@@ -7,8 +7,9 @@
 # Track the number of turns remaining.
 # If they run out of turns, provide feedback to the player.
 # Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
-from os import system
+
 import random
+from os import system
 
 LOGO = """ __    _  __   __  __   __  _______  _______  ______      _______  __   __  _______  _______  _______  ___   __    _  _______ 
 |  |  | ||  | |  ||  |_|  ||  _    ||       ||    _ |    |       ||  | |  ||       ||       ||       ||   | |  |  | ||       |
@@ -18,21 +19,24 @@ LOGO = """ __    _  __   __  __   __  _______  _______  ______      _______  __ 
 | | |   ||       || ||_|| || |_|   ||   |___ |   |  | |  |   |_| ||       ||   |___  _____| | _____| ||   | | | |   ||   |_| |
 |_|  |__||_______||_|   |_||_______||_______||___|  |_|  |_______||_______||_______||_______||_______||___| |_|  |__||_______|
 """
+# Put the number of turms in constant var, to make it easy if we need to change game later.
+EASY_TURNS = 10
+HARD_TURNS = 5
 
 
 def start_game():
-    """Start game and level selection
+    """Start game and select level
 
     :return: choice of level
-    :rtype: string
+    :rtype: boolean
     """
     print(LOGO)
     print("Welcome to the Number Guessing Game!")
     print("I'm thinking of a number between 1 and 100.")
     level_hard = input("Choose a difficulty. Type 'easy' or 'hard': ").lower().startswith("h")
     if level_hard:
-        return "hard"
-    return "easy"
+        return True
+    return False
 
 
 def guessing(correct_number, times):
@@ -62,16 +66,15 @@ def guessing(correct_number, times):
 
 
 if __name__ == "__main__":
-    # make the game continuous
+    # make the game continuous (extra from request)
     continue_playing = True
     while continue_playing:
         answer = random.randint(1, 100)
         # print(f"debugging purpose, the answer is {answer}")
-        level = start_game()
-        if level == "hard":
-            times_left = 5
-        else:
-            times_left = 10
+        level_is_hard = start_game()
+        times_left = EASY_TURNS
+        if level_is_hard:
+            times_left = HARD_TURNS
 
         guessing(answer, times_left)
         continue_playing = input("Do you want to play again? (y/n): ").lower().startswith("y")
