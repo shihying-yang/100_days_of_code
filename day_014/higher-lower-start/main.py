@@ -39,39 +39,6 @@ def start_game():
     return item_1
 
 
-def game_process(item_1):
-    """The main process to play the game
-
-    :return: compared higher list (or False)
-    :rtype: boolean
-    """
-    # the first item is always passed in. Either from a previous random pick,
-    # or from the previous winning item.
-    print(f"Compare A: {item_1['name']}, a {item_1['description']} from {item_1['country']}.")
-    print(vs)
-    # itme 2 is always randomly picked during the game process
-    item_2 = random.choice(data)
-    data.remove(item_2)
-    print(f"Against B: {item_2['name']}, a {item_2['description']} from {item_2['country']}.")
-    # ask the user to make a guess to see if a is higher or b is higher
-    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
-    guessed_list = []
-    # set the guessed list to the item that the user guessed
-    if guess == "a":
-        guessed_list = item_1
-    elif guess == "b":
-        guessed_list = item_2
-    else:
-        pass
-    # get the higher list of the two
-    higher = compare_followers(item_1, item_2)
-    # compare the higher list to the guessed list
-    if guessed_list == higher:
-        return higher
-    else:
-        return False
-
-
 if __name__ == "__main__":
     correct_guess = True
     score = 0
@@ -81,17 +48,35 @@ if __name__ == "__main__":
             compare_a = start_game()  # do this once
         else:
             print(f"You're right! Current score: {score}")
-
-        # major game logic
-        higher = game_process(compare_a)
+        
+        # start game logic
+        print(f"Compare A: {compare_a['name']}, a {compare_a['description']} from {compare_a['country']}.")
+        print(vs)
+        # compare_b is always randomly picked during the game process
+        compare_b = random.choice(data)
+        data.remove(compare_b)
+        print(f"Against B: {compare_b['name']}, a {compare_b['description']} from {compare_b['country']}.")
+        # ask the user to make a guess to see if a is higher or b is higher
+        guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+        guessed_list = []
+        # set the guessed list to the item that the user guessed
+        if guess == "a":
+            guessed_list = compare_a
+        elif guess == "b":
+            guessed_list = compare_b
+        else:
+            pass
+        # get the higher list of the two
+        higher = compare_followers(compare_a, compare_b)
 
         # clear the screen ang print the logo, wait for next result
         system("clear")
         print(logo)
+
         # if guessed correctly, add 1 to the score, else end the game
-        if higher:
+        if guessed_list == higher:
             score += 1
-            compare_a = higher
+            compare_a = compare_b
             if len(data) == 0:
                 correct_guess = False
                 print(f"You finish the game! Final score is {score}.")
