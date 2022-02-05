@@ -14,3 +14,4 @@ Day 009 - dictionary, nested structures: Secret Auction Program
 Day 010 - functions: ASCII calculator
 Day 011 - capstone project: Blackjack
 Day 012 - scope: Number Guessing Game
+Day 013 - debugging: (❌)
