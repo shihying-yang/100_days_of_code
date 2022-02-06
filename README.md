@@ -17,3 +17,4 @@ Day 012 - scope: Number Guessing Game
 Day 013 - debugging: (❌)
 Day 014 - all on my own: Higher Lower Game
 Day 015 - local coding, python, pycharm: Coffee Machine
+Day 016 - OOP: Coffee Machine (with Class pre-built)

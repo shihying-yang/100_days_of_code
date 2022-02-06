@@ -129,7 +129,7 @@ def make_coffee(selection, contain_resources):
 
 if __name__ == "__main__":
     machine_resources = resources
-    # continues making coffee until the user wants to quit (any thing that's not coffee)
+    # continues making coffee until the user wants to quit (machine off) 
     can_make_coffee = True
     amount = 0
     while can_make_coffee:
