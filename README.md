@@ -4,17 +4,18 @@ This is yet another round of 100 days of code. I don't think I will be following
 
 Day 001 - string: Band Name Generator.
 Day 002 - slice string, number and math: Tip Calculator.
-Day 003 - condtion: ASCII RPG Game
+Day 003 - condition: ASCII RPG Game
 Day 004 - list, random: Rock/Paper/Scissor ASCII game
 Day 005 - for loop, range: Password Generator
 Day 006 - while loop: Robot Escape Maze Game
 Day 007 - review: ASCII Hangman Game
-Day 008 - list shift, modulo: Digital Caesar Cipher
+Day 008 - list index shift, modulo: Digital Caesar Cipher
 Day 009 - dictionary, nested structures: Secret Auction Program
-Day 010 - functions: ASCII calculator
+Day 010 - functions: ASCII Calculator
 Day 011 - capstone project: Blackjack
-Day 012 - scope: Number Guessing Game
+Day 012 - global vs local scope: Number Guessing Game
 Day 013 - debugging: (❌)
 Day 014 - all on my own: Higher Lower Game
-Day 015 - local coding, python, pycharm: Coffee Machine
+Day 015 - install python, pycharm: Coffee Machine
 Day 016 - OOP: Coffee Machine (with Class pre-built)
+Day 017 - OOP, create class: Trivia Guessing Game
