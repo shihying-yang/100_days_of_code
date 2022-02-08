@@ -1,5 +1,6 @@
 import random
 import time
+from tkinter import *
 from turtle import Screen, Turtle
 
 STARTING_X = -220
@@ -22,6 +23,7 @@ for ind, color in enumerate(colors):
     new_turtle = Turtle(shape="turtle")
     new_turtle.color(color)
     new_turtle.penup()
+    # new_turtle.speed("fastest")
     space_count = colors.index(color)
     x_pos = STARTING_X
     y_pos = STARTING_Y + space_count * SPACE
@@ -51,14 +53,28 @@ while is_race_on:
             winning_turtle = all_turtles.index(the_turtle) + 1
             # end the while loop if a turtle wins
             is_race_on = False
+            result = Turtle(visible=False)
+            result.color(winning_color)
+            # result.hideturtle()
             if user_bet == winning_turtle:
-                print(f"You've won! The {winning_color} turtle is the winner!")
+                # instead of printing in command prompt, print that on the screen
+                # print(f"You've won! The {winning_color} turtle is the winner!")
+                result.write(
+                    f"You've won!\nThe '{winning_color.upper()}' turtle is the winner!",
+                    align="center",
+                    font=("Arial", 12, "bold"),
+                )
             else:
-                print(f"You've lost! The {winning_color} turtle is the winner!")
+                # instead of printing in command prompt, print that on the screen
+                # print(f"You've lost! The {winning_color} turtle is the winner!")
+                result.write(
+                    f"You've lost!\nThe '{winning_color.upper()}' turtle is the winner!",
+                    align="center",
+                    font=("Arial", 12, "bold"),
+                )
             # prevent another turtle gets to this the final point
             break
 
 # refactor: shut off the program after 3 seconds
 time.sleep(3)
 screen.bye()
-
