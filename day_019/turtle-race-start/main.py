@@ -78,3 +78,5 @@ while is_race_on:
 # refactor: shut off the program after 3 seconds
 time.sleep(3)
 screen.bye()
+
+# TODO: save the result as an image

@@ -21,3 +21,4 @@ Day 016 - OOP: Coffee Machine (with Class pre-built)
 Day 017 - OOP, create class: Trivia Guessing Game
 Day 018 - turtle module, **colorgram** module: Hirst Painting
 Day 019 - more turtle (graphics), event listeners, state, and multiple instances: Turtle Racing Game
+    # TODO: save the result as an image
