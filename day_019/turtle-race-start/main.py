@@ -1,6 +1,5 @@
 import random
 import time
-from tkinter import *
 from turtle import Screen, Turtle
 
 STARTING_X = -220
