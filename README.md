@@ -23,3 +23,4 @@ Day 018 - turtle module, **colorgram** module: Hirst Painting
 Day 019 - more turtle (graphics), event listeners, state, and multiple instances: Turtle Racing Game
     # TODO: save the result as an image
 Day 020 - break down problems, consider solutions: Snake Game (1/2)
+Day 021 - inheritance, slicing: Snake Game (final)
