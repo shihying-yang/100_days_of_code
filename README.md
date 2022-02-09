@@ -24,3 +24,4 @@ Day 019 - more turtle (graphics), event listeners, state, and multiple instances
     # TODO: save the result as an image
 Day 020 - break down problems, consider solutions: Snake Game (1/2)
 Day 021 - inheritance, slicing: Snake Game (final)
+Day 022 - turtle, class, practice: The Pong Game
