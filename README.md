@@ -14,7 +14,7 @@ Day 009 - dictionary, nested structures: Secret Auction Program
 Day 010 - functions: ASCII Calculator
 Day 011 - capstone project: Blackjack
 Day 012 - global vs local scope: Number Guessing Game
-Day 013 - debugging: (❌)
+Day 013 - debugging: (❌, no projects)
 Day 014 - all on my own: Higher Lower Game
 Day 015 - install python, pycharm: Coffee Machine
 Day 016 - OOP: Coffee Machine (with Class pre-built)
@@ -24,4 +24,4 @@ Day 019 - more turtle (graphics), event listeners, state, and multiple instances
     # TODO: save the result as an image
 Day 020 - break down problems, consider solutions: Snake Game (1/2)
 Day 021 - inheritance, slicing: Snake Game (final)
-Day 022 - turtle, class, practice: The Pong Game
+Day 022 - turtle, class, practice: The Pong Game (Not a full/complete game. Minor bugs are still showing)

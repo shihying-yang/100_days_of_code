@@ -33,4 +33,3 @@ class Scoreboard(Turtle):
             self.r_score += 1
         self.clear()
         self.write_score()
-
