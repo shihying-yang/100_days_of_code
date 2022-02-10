@@ -34,10 +34,7 @@ for ind, color in enumerate(colors):
     all_turtles.append(new_turtle)
 
 # refactor: change the input from "color" to "number"
-user_bet = int(
-    screen.numinput(title="Make your bet", prompt="Which turtle will win the race? Enter a number: ")
-)
-
+user_bet = screen.numinput(title="Make your bet", prompt="Which turtle will win the race? Enter a number: ")
 
 if user_bet:
     is_race_on = True
@@ -55,7 +52,7 @@ while is_race_on:
             result = Turtle(visible=False)
             result.color(winning_color)
             # result.hideturtle()
-            if user_bet == winning_turtle:
+            if int(user_bet) == winning_turtle:
                 # instead of printing in command prompt, print that on the screen
                 # print(f"You've won! The {winning_color} turtle is the winner!")
                 result.write(
