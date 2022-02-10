@@ -2,4 +2,5 @@
 .git/
 .idea/
 __pycache__/
+__MACOSX/
 .gitignore
