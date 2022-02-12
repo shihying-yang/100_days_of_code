@@ -47,11 +47,13 @@ while game_on:
             t.color("red")
             t.write(f"You quit with {len(guessed_states)}/{TOTAL_STATES} correct", align="center", font=ANNOUNCE_FONT)
             game_on = False
-            # add a missing state for future learning
-            missing_states = []
-            for state in state_data.state.to_list():
-                if state not in guessed_states:
-                    missing_states.append(state)
+            # # add a missing state for future learning
+            # # from day 26: change below lines to list comprehension
+            # missing_states = []
+            # for state in state_data.state.to_list():
+            #     if state not in guessed_states:
+            #         missing_states.append(state)
+            missing_states = [state for state in state_data.state.to_list() if state not in guessed_states]
             pandas.DataFrame(missing_states).to_csv("states_to_learn.csv")
             time.sleep(5)
 
