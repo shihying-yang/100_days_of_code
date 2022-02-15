@@ -27,4 +27,8 @@ Day 021 - inheritance, slicing: Snake Game (final)
 Day 022 - turtle, class, practice: The Pong Game (Not a full/complete game. Minor bugs are still showing)
 Day 023 - capstone project 2: Turtle Crossing Game
 Day 024 - working with files, directory, path: MailMerge Project
-Day 025 - csv file, csv module, pandas module
+Day 025 - csv file, csv module, pandas module, Series, DataFrames: US State Game
+Day 026 - list comprehension, dictionary comprehension, go thru DataFrame: Nato Translator
+Day 027 - tkinter, *args, *kargs: Miles to KM Converter
+Day 028 - tkinter deep dive, event driven, windows sleep and cancel sleep: Pomodoro Timer
+Day 029 - tkinter, messagebox: Password Generator
