@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import winsound
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -8,7 +8,7 @@ YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+LONG_BREAK_MIN = 15
 SLEEP_MS = 1000
 REPS = 0
 timer = None
@@ -62,6 +62,7 @@ def count_down(count):
         #     to_print_count = REPS // 2 + 1
         #     to_print_text = "✔" * to_print_count
         #     lbl_check.config(text=to_print_text)
+        winsound.Beep(440, 500)
         start_timer()
         # add the check mark
         marks = ""
@@ -69,6 +70,7 @@ def count_down(count):
         for _ in range(work_session):
             marks += "✔"
         lbl_check.config(text=marks)
+
 
 
 # ---------------------------- UI SETUP ------------------------------- #
