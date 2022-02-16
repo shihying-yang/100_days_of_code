@@ -32,3 +32,4 @@ Day 026 - list comprehension, dictionary comprehension, go thru DataFrame: Nato 
 Day 027 - tkinter, *args, *kargs: Miles to KM Converter
 Day 028 - tkinter deep dive, event driven, windows sleep and cancel sleep: Pomodoro Timer
 Day 029 - tkinter, messagebox: Password Generator
+Day 030 - error, exception, json: Password Generator Improved
