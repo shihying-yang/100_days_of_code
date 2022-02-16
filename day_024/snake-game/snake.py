@@ -1,7 +1,6 @@
 """snake class"""
 from turtle import Turtle
 
-
 # BEGIN_X_COR = 0
 # BEGIN_Y_COR = 0
 START_POSITION = [(0, 0), (-20, 0), (-40, 0)]

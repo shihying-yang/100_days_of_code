@@ -1,4 +1,4 @@
-#Data Types
+# Data Types
 
 # print(len(12352)) # --> TypeError: object of type 'int' has no len()
 
@@ -48,16 +48,16 @@ print(3 * 2)
 print(6 / 3)
 print(2 ** 3)
 
-#PEMDAS
+# PEMDAS
 # () > ** > * = / > + = -
 
-print(3 * 3 + 3 / 3 - 3)   # 7.0
-print(3 * (3 + 3) / 3 - 3)   # 3.0
+print(3 * 3 + 3 / 3 - 3)  # 7.0
+print(3 * (3 + 3) / 3 - 3)  # 3.0
 
 ## Number Manipulation
 
-print(int(8/3))
-print(round(8/3, 2))
+print(int(8 / 3))
+print(round(8 / 3, 2))
 print(8 // 3)
 print(type(8 // 3))
 
@@ -78,4 +78,3 @@ isWinning = True
 
 # print("Your score is " + str(score) + str(height) + str(isWinning))
 print(f"Your score is {score}, your height is {height}, you are winning is {isWinning}.")
-

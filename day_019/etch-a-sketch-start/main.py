@@ -1,5 +1,5 @@
 """Create an etch-a-sketch simulator """
-from turtle import Turtle, Screen
+from turtle import Screen, Turtle
 
 tim = Turtle()
 screen = Screen()

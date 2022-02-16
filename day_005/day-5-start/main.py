@@ -7,7 +7,7 @@ for fruit in fruits:
 # range function
 for number in range(1, 10):  # 10 is not printed
     print(number)
-    
+
 for number in range(1, 11, 3):
     print(number)
 

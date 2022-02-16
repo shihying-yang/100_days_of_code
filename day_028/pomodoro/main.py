@@ -1,5 +1,6 @@
 import tkinter as tk
 import winsound
+
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -70,7 +71,6 @@ def count_down(count):
         for _ in range(work_session):
             marks += "✔"
         lbl_check.config(text=marks)
-
 
 
 # ---------------------------- UI SETUP ------------------------------- #

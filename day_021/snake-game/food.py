@@ -1,7 +1,7 @@
 """Food class file"""
 
-from turtle import Turtle
 import random
+from turtle import Turtle
 
 BOUNDARY = 260
 

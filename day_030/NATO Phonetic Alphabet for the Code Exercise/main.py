@@ -30,5 +30,6 @@ def generate_nato():
     else:
         print(output_list)
 
+
 if __name__ == "__main__":
     generate_nato()

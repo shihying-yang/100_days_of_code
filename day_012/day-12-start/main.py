@@ -70,7 +70,9 @@
 # Globacl constants
 PI = 3.14159
 
+
 def calc_area(radius):
     return PI * radius ** 2
+
 
 print(calc_area(10))

@@ -1,8 +1,9 @@
 """Guess US State game"""
 
-import turtle
-import pandas
 import time
+import turtle
+
+import pandas
 
 TOTAL_STATES = 50
 SCORE_FONT = ("Arial", 10, "normal")
@@ -36,7 +37,8 @@ while game_on:
         answer_state = screen.textinput(title="Guess a State", prompt="What is a state name?")
     else:
         answer_state = screen.textinput(
-            title=f"{len(guessed_states)}/{TOTAL_STATES} Stages Correct", prompt="What is another state name?"
+            title=f"{len(guessed_states)}/{TOTAL_STATES} Stages Correct",
+            prompt="What is another state name?",
         )
     # make the user input PascalCase
     if answer_state:
@@ -45,7 +47,11 @@ while game_on:
         if answer_state == "Exit":
             t.home()
             t.color("red")
-            t.write(f"You quit with {len(guessed_states)}/{TOTAL_STATES} correct", align="center", font=ANNOUNCE_FONT)
+            t.write(
+                f"You quit with {len(guessed_states)}/{TOTAL_STATES} correct",
+                align="center",
+                font=ANNOUNCE_FONT,
+            )
             game_on = False
             # # add a missing state for future learning
             # # from day 26: change below lines to list comprehension

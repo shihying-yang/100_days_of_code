@@ -1,5 +1,6 @@
-from turtle import Screen
 import time
+from turtle import Screen
+
 from snake import Snake
 
 BEGIN_X_COR = 0

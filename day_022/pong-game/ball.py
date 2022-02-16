@@ -1,7 +1,7 @@
 """ball class"""
 
-from turtle import Turtle
 from random import choice
+from turtle import Turtle
 
 MOVING_DISTANCE = 15
 

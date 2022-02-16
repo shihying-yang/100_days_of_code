@@ -1,7 +1,7 @@
 """create a squirrel_count.csv with 2 columns, Fur Color and Count"""
 import pandas
 
-sq_data = pandas.read_csv('2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv')
+sq_data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 # print(sq_data.head())
 
 # gray_sq_data = sq_data[sq_data["Primary Fur Color"] == "Gray"]
@@ -28,4 +28,4 @@ data_dict = {
 }
 
 pan_data = pandas.DataFrame(data_dict)
-pandas.DataFrame(data_dict).to_csv('squirrel_count.csv')
+pandas.DataFrame(data_dict).to_csv("squirrel_count.csv")

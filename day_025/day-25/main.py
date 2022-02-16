@@ -16,6 +16,7 @@
 #     print(temperatures)
 
 from audioop import avg
+
 import pandas
 
 data = pandas.read_csv("weather_data.csv")

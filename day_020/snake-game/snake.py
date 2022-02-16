@@ -1,7 +1,6 @@
 """snake class"""
 from turtle import Turtle
 
-
 BEGIN_X_COR = 0
 BEGIN_Y_COR = 0
 MOVE_DISTANCE = 20
