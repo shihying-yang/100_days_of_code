@@ -4,3 +4,6 @@
 __pycache__/
 __MACOSX/
 .gitignore
+personal_config.py
+birthdays.csv*
+

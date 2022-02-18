@@ -33,3 +33,5 @@ Day 027 - tkinter, *args, *kargs: Miles to KM Converter
 Day 028 - tkinter deep dive, event driven, windows sleep and cancel sleep: Pomodoro Timer
 Day 029 - tkinter, messagebox: Password Generator
 Day 030 - error, exception, json: Password Generator Improved
+Day 031 - milestone project: Flip Card Game
+Day 032 - smtplib, datetime modules: Birthday Email Automater
