@@ -38,3 +38,4 @@ Day 032 - smtplib, datetime modules: Birthday Email Automater
 Day 033 - apis: iss check emailer
 Day 034 - api + gui: Quizzler Gui
 Day 035 - api keys, authentication, environment variables, sending SMS, Rain Alert Notifier
+Day 036 - more apis: Stock News Monitoring
