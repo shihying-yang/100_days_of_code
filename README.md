@@ -39,3 +39,4 @@ Day 033 - apis: iss check emailer
 Day 034 - api + gui: Quizzler Gui
 Day 035 - api keys, authentication, environment variables, sending SMS, Rain Alert Notifier
 Day 036 - more apis: Stock News Monitoring
+Day 037 - api POST/PUT/DELETE, headers: Habit Tracker
