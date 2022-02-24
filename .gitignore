@@ -6,4 +6,4 @@ __MACOSX/
 .gitignore
 personal_config.py
 birthdays.csv*
-
+*.gsheet
