@@ -3586,8 +3586,6 @@ weather_data = {
 
 # reply from call for current weather from the browser
 """
-/ 20220220100404
-// http://api.openweathermap.org/data/2.5/weather?lat=42.636297&lon=-71.191308&appid=24dd9656357b94ef7c023f22d6e1fbee
 
 {
   "coord": {
