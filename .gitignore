@@ -1,9 +1,10 @@
 .history/
 .git/
 .idea/
+.vscode/
 __pycache__/
 __MACOSX/
-.gitignore
 personal_config.py
 birthdays.csv*
 *.gsheet
+.gitignore
