@@ -43,3 +43,4 @@ Day 037 - api POST/PUT/DELETE, headers: Habit Tracker
 Day 038 - challenge: Exercise Google Sheet Tracker
 Day 039 - Capstone project: Flight Search (from Google records)
 Day 040 - Capstone project II: Flight deals club (to/from Google records)
+Day 041 - HTML/CSS, Personal site
