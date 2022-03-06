@@ -45,3 +45,4 @@ Day 039 - Capstone project: Flight Search (from Google records)
 Day 040 - Capstone project II: Flight deals club (to/from Google records)
 Day 041 - HTML/CSS, Personal: site
 Day 042 - HTML intermediate, tables, forms: published personal site to Git
+Day 043 - CSS intro.
