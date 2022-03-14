@@ -47,4 +47,5 @@ Day 041 - HTML/CSS, Personal: site
 Day 042 - HTML intermediate, tables, forms: published personal site to Git
 Day 043 - CSS intro.
 Day 044 - CSS intermediate.
-Day 045 - Web Scrapping - beautifulSoup: 
+Day 045 - Web Scrapping - beautifulSoup: 100 movies
+Day 046 - Web Scrapping for Billboard and API for Spotify: Music Time Machine
