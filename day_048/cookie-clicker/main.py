@@ -6,8 +6,8 @@ from selenium.webdriver.common.by import By
 
 URL = "http://orteil.dashnet.org/experiments/cookie/"
 
-MIN = 0.5
-
+MIN = 5
+inter_check = 10
 chrome_driver_path = r"D:\myStuff\bin\chromedriver.exe"
 service = Service(executable_path=chrome_driver_path)
 driver = webdriver.Chrome(service=service)
@@ -40,7 +40,7 @@ def find_helper():
 
 current_time = time.time()
 timeout = current_time + 60 * MIN
-test_time = current_time + 5
+test_time = current_time + inter_check
 
 while True:
     # cookie = driver.find_element(By.ID, "cookie")
@@ -49,7 +49,7 @@ while True:
         break
     elif time.time() > test_time:
         find_helper()
-        test_time = time.time() + 5
+        test_time = time.time() + inter_check
 
     cookie.click()
 
@@ -59,4 +59,4 @@ clicks_count_tag = driver.find_element(By.ID, "cps")
 # click_count = clicks_count_tag.text.split(":")[1].strip()
 print(f"{clicks_count_tag.text}")
 
-# driver.quit()
+driver.quit()

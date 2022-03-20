@@ -50,4 +50,6 @@ Day 044 - CSS intermediate.
 Day 045 - Web Scrapping - beautifulSoup: 100 movies
 Day 046 - Web Scrapping for Billboard and API for Spotify: Music Time Machine
 Day 047 - Web Scrapping: Amazon Price Checker
-Day 048 - Selenium Webdriver: 
+Day 048 - Selenium Webdriver: Cookie Clicker
+Day 049 - Selenium: Automated Job Application Bot
+
