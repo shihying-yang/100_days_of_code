@@ -52,4 +52,4 @@ Day 046 - Web Scrapping for Billboard and API for Spotify: Music Time Machine
 Day 047 - Web Scrapping: Amazon Price Checker
 Day 048 - Selenium Webdriver: Cookie Clicker
 Day 049 - Selenium: Automated Job Application Bot
-
+Day 050 - Auto Tinder Bot
