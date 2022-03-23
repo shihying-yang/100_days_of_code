@@ -53,3 +53,4 @@ Day 047 - Web Scrapping: Amazon Price Checker
 Day 048 - Selenium Webdriver: Cookie Clicker
 Day 049 - Selenium: Automated Job Application Bot
 Day 050 - Auto Tinder Bot
+Day 051 - Internet Speed Twitter Bot
