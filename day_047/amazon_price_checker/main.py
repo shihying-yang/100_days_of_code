@@ -15,8 +15,7 @@ to_check_URL = "https://www.amazon.com/gp/product/B07YYYFJ1D"
 # to_check_URL = "https://www.amazon.com/gp/product/B088BXDJPZ"
 
 accept_language = "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7"
-user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36"
-
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36"
 
 def get_amazon_page(url):
     """Get the price from amazon via web scraping"""
