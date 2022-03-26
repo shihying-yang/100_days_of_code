@@ -54,4 +54,4 @@ Day 048 - Selenium Webdriver: Cookie Clicker
 Day 049 - Selenium practice: Automated Job Application Bot
 Day 050 - Selenium practice: Auto Tinder Bot
 Day 051 - Selenium practice: Internet Speed Twitter Bot
-Day 052 - Instagram
+Day 052 - Selenium practice: Instagram Follower Bot
