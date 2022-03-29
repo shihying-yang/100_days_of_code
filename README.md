@@ -56,3 +56,4 @@ Day 050 - Selenium practice: Auto Tinder Bot
 Day 051 - Selenium practice: Internet Speed Twitter Bot
 Day 052 - Selenium practice: Instagram Follower Bot
 Day 053 - Capstone Project - Zillow Rental Research
+Day 054 - Flask, Decorator intro
