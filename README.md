@@ -57,3 +57,4 @@ Day 051 - Selenium practice: Internet Speed Twitter Bot
 Day 052 - Selenium practice: Instagram Follower Bot
 Day 053 - Capstone Project - Zillow Rental Research
 Day 054 - Flask, Decorator intro
+Day 055 - render HTML, parse url, Flask debug, adv decorator: Guess Number site
