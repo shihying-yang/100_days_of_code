@@ -58,3 +58,4 @@ Day 052 - Selenium practice: Instagram Follower Bot
 Day 053 - Capstone Project - Zillow Rental Research
 Day 054 - Flask, Decorator intro
 Day 055 - render HTML, parse url, Flask debug, adv decorator: Guess Number site
+Day 056 - render HTML, templates from html: name card site
