@@ -147,3 +147,30 @@ p {
         transform: rotate(0deg);
     }
 }
+
+/* Call to Action */
+#cta {
+    background-color: #ff4c68;
+    color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.cta-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* Footer */
+#footer {
+    background-color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.footer-logo {
+    color: #000;
+    margin: 20px 10px;
+}
