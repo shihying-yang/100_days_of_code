@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -14,9 +14,16 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        print(request.form["name"])
+        print(request.form["email"])
+        print(request.form["phone"])
+        print(request.form["message"])
+        return f"<h1>Successfully sent your message!</h1>"
+    else:
+        return render_template("contact.html")
 
 @app.route("/post/<post_id>")
 def get_post(post_id):
@@ -24,9 +31,16 @@ def get_post(post_id):
         if str(post["id"]) == post_id:
             return render_template("post.html", post=post)
         
-@app.route("form-entry")
-def receive_data():
-    pass
+# @app.route("/form-entry", methods=["POST"])
+# def receive_data():
+#     # return f"<h1>test</h1>"
+#     if request.method == "POST":
+#         # print("blah")
+#         # print(request.form["name"])
+#         # print(request.form["email"])
+#         # print(request.form["phone"])
+#         # print(request.form["message"])
+#         return f"<h1>{request.form['name']}</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
