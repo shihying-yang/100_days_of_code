@@ -1,0 +1,31 @@
+## index.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h1>My Library</h1>
+    <ul>
+        {% for book in books %}
+        <li>{{book.title}} - {{book.author}} - {{book.rating}}/10</li>
+        {% endfor %}
+    </ul>
+<a href="">Add New Book</a>
+</body>
+</html>
+
+---
+
+## main.py
+---
+##MORE CODE ABOVE
+
+@app.route('/')
+def home():
+    return render_template("index.html", books=all_books)
+  
+##MORE CODE BELOW
+---
