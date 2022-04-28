@@ -1,0 +1,12 @@
+## main.py
+---
+## MORE CODE ABOVE
+
+@app.route('/')
+def home():
+    ##READ ALL RECORDS
+    all_books = db.session.query(Book).all()
+    return render_template("index.html", books=all_books)
+
+## MORE CODE BELOW
+---

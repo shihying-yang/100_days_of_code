@@ -1,0 +1,63 @@
+## edit_rating.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+</head>
+<body>
+     <form action="{{ url_for('edit') }}" method="POST">
+        <p>Book Name: {{book.title}}</p>
+        <p>Current Rating {{book.rating}}</p>
+         <input hidden="hidden" name="id" value="{{book.id}}">
+        <input name="rating" type="text" placeholder="New Rating">
+        <button type="submit">Change Rating</button>
+    </form>
+</body>
+</html>
+
+---
+## index.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+<h1>My Library</h1>
+        {% if books == []: %}
+        <p>Library is empty.</p>
+        {% endif %}
+    <ul>
+        {% for book in books %}
+        <li>
+            {{book.title}} - {{book.author}} - {{book.rating}}/10
+            <a href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
+        </li>
+        {% endfor %}
+    </ul>
+<a href="{{ url_for('add') }}">Add New Book</a>
+</body>
+</html>
+
+---
+## main.py
+---
+@app.route("/edit", methods=["GET", "POST"])
+def edit():
+    if request.method == "POST":
+        #UPDATE RECORD
+        book_id = request.form["id"]
+        book_to_update = Book.query.get(book_id)
+        book_to_update.rating = request.form["rating"]
+        db.session.commit()
+        return redirect(url_for('home'))
+    book_id = request.args.get('id')
+    book_selected = Book.query.get(book_id)
+    return render_template("edit_rating.html", book=book_selected)
+  
+  ## MORE CODE BELOW
+---
