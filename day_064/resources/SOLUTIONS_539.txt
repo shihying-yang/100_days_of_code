@@ -1,0 +1,23 @@
+## index.html
+---
+## MORE CODE ABOVE
+
+<a href="{{ url_for('delete_movie', id=movie.id) }}" class="button delete-button">Delete</a>
+
+##MORE CODE BELOW
+
+---
+## main.py
+---
+## MORE CODE ABOVE
+
+@app.route("/delete")
+def delete_movie():
+    movie_id = request.args.get("id")
+    movie = Movie.query.get(movie_id)
+    db.session.delete(movie)
+    db.session.commit()
+    return redirect(url_for("home"))
+
+##MORE CODE BELOW
+---
