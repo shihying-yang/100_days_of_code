@@ -1,3 +1,19 @@
+## main.py
+---
+def add_movie():
+    form = FindMovieForm()
+    
+    if form.validate_on_submit():
+        movie_title = form.title.data
+        response = requests.get(MOVIE_DB_SEARCH_URL, params={"api_key": MOVIE_DB_API_KEY, "query": movie_title})
+        data = response.json()["results"]
+        return render_template("select.html", options=data)
+      
+    return render_template("add.html", form=form)
+
+---
+## select.html
+---
 {% extends 'bootstrap/base.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
 
@@ -13,15 +29,13 @@
 {% block content %}
 <div class="container">
     <h1 class="heading">Select Movie</h1>
-  <!--
+  
+    {% for movie in options: %}
   <p>
-    <a href="#"> MOVIE TITLE - MOVIE RELEASE DATE</a>
-  </p>
-  -->
-  {% for movie in movies %}
-  <p>
-    <a href="{{ url_for('select_movie', id=movie.id) }}"> {{ movie.title }} - {{ movie.release_date }}</a>
+    <a href="#">{{ movie.title }} - {{movie.release_date}}</a>
   </p>
   {% endfor %}
+
 </div>
 {% endblock %}
+---
