@@ -1,0 +1,17 @@
+## main.py
+---
+## MORE CODE ABOVE
+
+@app.route("/random", methods=["GET"])
+def get_random_cafe():
+  pass
+
+## But GET is allowed by default on all routes.
+# So this is much simpler:
+
+@app.route("/random")
+def get_random_cafe():
+  pass
+
+
+## MORE CODE BELOW

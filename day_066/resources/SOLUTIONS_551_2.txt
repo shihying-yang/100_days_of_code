@@ -1,0 +1,10 @@
+## main.py
+---
+## MORE CODE ABOVE
+
+@app.route("/random")
+def get_random_cafe():
+    cafes = db.session.query(Cafe).all()
+    random_cafe = random.choice(cafes)
+    
+## MORE CODE BELOW
