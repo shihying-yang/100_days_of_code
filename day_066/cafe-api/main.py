@@ -17,7 +17,7 @@ class Cafe(db.Model):
     map_url = db.Column(db.String(500), nullable=False)
     img_url = db.Column(db.String(500), nullable=False)
     location = db.Column(db.String(250), nullable=False)
-    seats = db.Column(db.String(250), nullable=False)
+    seats = db.Column(db.String(250), nullable=True)
     has_toilet = db.Column(db.Boolean, nullable=False)
     has_wifi = db.Column(db.Boolean, nullable=False)
     has_sockets = db.Column(db.Boolean, nullable=False)
@@ -81,6 +81,43 @@ def search_cafe_by_location():
 
 
 ## HTTP POST - Create Record
+@app.route("/add", methods=["POST"])
+def add_cafe():
+    cafe_name = request.args.get("name")
+    cafe_map_url = request.args.get("map_url")
+    cafe_img_url = request.args.get("img_url")
+    cafe_location = request.args.get("location")
+    cafe_has_sockets = False
+    if request.args.get("has_sockets").lower() == "true":
+        cafe_has_sockets = True
+    cafe_has_toilet = False
+    if request.args.get("has_toilet").lower() == "true":
+        cafe_has_toilet = True
+    cafe_has_wifi = False
+    if request.args.get("has_wifi").lower() == "true":
+        cafe_has_wifi = True
+    cafe_can_take_calls = False
+    if request.args.get("can_take_calls").lower() == "true":
+        cafe_can_take_calls = True
+    cafe_seats = request.args.get("seats")
+    cafe_coffee_price = request.args.get("coffee_price")
+
+    new_cafe = Cafe(
+        name=cafe_name,
+        map_url=cafe_map_url,
+        img_url=cafe_img_url,
+        location=cafe_location,
+        has_sockets=cafe_has_sockets,
+        has_toilet=cafe_has_toilet,
+        has_wifi=cafe_has_wifi,
+        can_take_calls=cafe_can_take_calls,
+        seats=cafe_seats,
+        coffee_price=cafe_coffee_price,
+    )
+    db.session.add(new_cafe)
+    db.session.commit()
+    return {"response": {"success": "Successfully added the new cafe."}}
+
 
 ## HTTP PUT/PATCH - Update Record
 
