@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -38,7 +39,8 @@ class CreatePostForm(FlaskForm):
     subtitle = StringField("Subtitle", validators=[DataRequired()])
     author = StringField("Your Name", validators=[DataRequired()])
     img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-    body = StringField("Blog Content", validators=[DataRequired()])
+    # body = StringField("Blog Content", validators=[DataRequired()])
+    body = CKEditorField("Blog Content", validators=[DataRequired()])
     submit = SubmitField("Submit Post")
 
 
@@ -59,11 +61,31 @@ def show_post(index):
     print(requested_post)
     return render_template("post.html", post=requested_post)
 
+
 # This is so the "edit" part in post.html won't give error
-#TODO implement the edit function -- SY 2022-05-08
+# TODO implement the edit function -- SY 2022-05-08
 @app.route("/edit/", methods=["GET", "POST"])
 def edit_post(post_id):
     return f""
+
+
+@app.route("/new-post", methods=["GET", "POST"])
+def new_post():
+    form = CreatePostForm()
+    # if form.validate_on_submit():
+    if form.validate_on_submit():
+        new_blog = BlogPost(
+            title=form.title.data,
+            subtitle=form.subtitle.data,
+            date=datetime.now().strftime("%B %d, %Y"),
+            body=form.body.data,
+            author=form.author.data,
+            img_url=form.img_url.data,
+        )
+        db.session.add(new_blog)
+        db.session.commit()
+        return redirect(url_for("get_all_posts"))
+    return render_template("make-post.html", form=form)
 
 
 @app.route("/about")
@@ -77,4 +99,4 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
