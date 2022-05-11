@@ -1,12 +1,12 @@
 from datetime import datetime
-from flask import Flask, render_template, redirect, url_for
+
+from flask import Flask, redirect, render_template, request, url_for
 from flask_bootstrap import Bootstrap
+from flask_ckeditor import CKEditor, CKEditorField
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, URL
-from flask_ckeditor import CKEditor, CKEditorField
-
+from wtforms.validators import URL, DataRequired
 
 ## Delete this code:
 # import requests
@@ -51,22 +51,30 @@ def get_all_posts():
     return render_template("index.html", all_posts=posts)
 
 
-@app.route("/post/<int:index>")
-def show_post(index):
+@app.route("/post/<int:post_id>")
+def show_post(post_id):
     requested_post = None
-    # for blog_post in posts:
-    #     if blog_post["id"] == index:
-    #         requested_post = blog_post
-    requested_post = db.session.query(BlogPost).get(index)
+    requested_post = db.session.query(BlogPost).get(post_id)
     print(requested_post)
     return render_template("post.html", post=requested_post)
 
 
 # This is so the "edit" part in post.html won't give error
-# TODO implement the edit function -- SY 2022-05-08
-@app.route("/edit/", methods=["GET", "POST"])
+@app.route("/edit-post/<int:post_id>", methods=["GET", "POST"])
 def edit_post(post_id):
-    return f""
+    post = db.session.query(BlogPost).get(post_id)
+    form = CreatePostForm(
+        title=post.title, subtitle=post.subtitle, author=post.author, img_url=post.img_url, body=post.body
+    )
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.subtitle = form.subtitle.data
+        post.author = form.author.data
+        post.img_url = form.img_url.data
+        post.body = form.body.data
+        db.session.commit()
+        return redirect(url_for("show_post", post_id=post_id))
+    return render_template("make-post.html", form=form, heading="Edit Post")
 
 
 @app.route("/new-post", methods=["GET", "POST"])
@@ -85,7 +93,15 @@ def new_post():
         db.session.add(new_blog)
         db.session.commit()
         return redirect(url_for("get_all_posts"))
-    return render_template("make-post.html", form=form)
+    return render_template("make-post.html", form=form, heading="New Post")
+
+
+@app.route("/delete-post/<int:post_id>")
+def delete_post(post_id):
+    post_to_delete = db.session.query(BlogPost).get(post_id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect(url_for("get_all_posts"))
 
 
 @app.route("/about")

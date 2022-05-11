@@ -1,0 +1,44 @@
+## index.html
+---
+## MORE CODE ABOVE
+
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in all_posts %}
+        <div class="post-preview">
+          
+          #Anchor tag to delete post.
+          <a href="{{ url_for('show_post', post_id=post.id) }}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{post.author}}</a>
+            on {{post.date}}
+            <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+          </p>
+        </div>
+        <hr>
+        {% endfor %}
+        
+## MORE CODE BELOW
+
+---
+## main.py
+---
+  ## MORE CODE ABOVE
+
+@app.route("/delete/<int:post_id>")
+def delete_post(post_id):
+    post_to_delete = BlogPost.query.get(post_id)
+    db.session.delete(post_to_delete)
+    db.session.commit()
+    return redirect(url_for('get_all_posts'))
+        
+  ## MORE CODE BELOW
