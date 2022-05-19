@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from forms import CreatePostForm, RegisterForm
+from forms import CreatePostForm, RegisterForm, LoginForm
 from flask_gravatar import Gravatar
 
 app = Flask(__name__)
@@ -48,10 +48,11 @@ class BlogPost(db.Model):
 
 ##CREATE TABLE IN DB
 class User(UserMixin, db.Model):
+    __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
-    name = db.Column(db.String(1000))
+    name = db.Column(db.String(100))
 
 
 db.create_all()
@@ -66,15 +67,16 @@ def get_all_posts():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
-    if request.method == "POST":
-        user = User.query.filter_by(email=request.form["email"]).first()
+    # if request.method == "POST":
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
         if user:
             flash("You've already signed up with that email, login instead.")
             return redirect(url_for("login"))
         new_user = User(
-            name=request.form["name"],
-            email=request.form["email"],
-            password=generate_password_hash(request.form["password"], method="pbkdf2:sha256", salt_length=8),
+            name=form.name.data,
+            email=form.email.data,
+            password=generate_password_hash(form.password.data, method="pbkdf2:sha256", salt_length=8),
         )
         db.session.add(new_user)
         db.session.commit()
@@ -84,13 +86,26 @@ def register():
     return render_template("register.html", form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            flash("The user does not exist, please register.")
+            return redirect(url_for("register"))
+        elif not check_password_hash(user.password, form.password.data):
+            flash("The password is not accurate, please try again.")
+            return redirect(url_for("login"))
+        else:
+            login_user(user)
+            return redirect(url_for("get_all_posts"))
+    return render_template("login.html", form=form)
 
 
 @app.route("/logout")
 def logout():
+    logout_user()
     return redirect(url_for("get_all_posts"))
 
 
