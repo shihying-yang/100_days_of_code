@@ -1,12 +1,15 @@
 from datetime import date
 from functools import wraps
 
-from flask import Flask, abort, flash, redirect, render_template, request, url_for
+from flask import (Flask, abort, flash, redirect, render_template, request,
+                   url_for)
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from flask_gravatar import Gravatar
-from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
+from flask_login import (LoginManager, UserMixin, current_user, login_required,
+                         login_user, logout_user)
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from forms import CreatePostForm, LoginForm, RegisterForm
@@ -35,7 +38,10 @@ def load_user(user_id):
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
-    author = db.Column(db.String(250), nullable=False)
+    # author = db.Column(db.String(250), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    author = relationship("User", back_populates="posts")
+    
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
     date = db.Column(db.String(250), nullable=False)
@@ -53,9 +59,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(100))
+    posts = relationship("BlogPost", back_populates="author")
 
-
-# db.create_all()
+db.create_all()
 
 
 # decorator to check if user logged in is admin
@@ -72,7 +78,8 @@ def admin_only(f):
 @app.route("/")
 def get_all_posts():
     posts = BlogPost.query.all()
-    return render_template("index.html", all_posts=posts)
+    users = User.query.all()
+    return render_template("index.html", all_posts=posts, users=users)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -123,7 +130,8 @@ def logout():
 @app.route("/post/<int:post_id>")
 def show_post(post_id):
     requested_post = BlogPost.query.get(post_id)
-    return render_template("post.html", post=requested_post)
+    user = User.query.get(requested_post.author_id)
+    return render_template("post.html", post=requested_post, user=user)
 
 
 @app.route("/about")
@@ -136,7 +144,7 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/new-post")
+@app.route("/new-post", methods=["GET", "POST"])
 @admin_only
 def add_new_post():
     form = CreatePostForm()
