@@ -1,5 +1,6 @@
 from datetime import date
 from functools import wraps
+from multiprocessing import parent_process
 
 from flask import Flask, abort, flash, redirect, render_template, request, url_for
 from flask_bootstrap import Bootstrap
@@ -48,6 +49,7 @@ class BlogPost(db.Model):
 
     comments = relationship("Comment", back_populates="parent_post")
 
+
 # db.create_all()
 
 
@@ -72,7 +74,19 @@ class Comment(db.Model):
     postid = db.Column(db.Integer, db.ForeignKey("blog_posts.id"))
     parent_post = relationship("BlogPost", back_populates="comments")
 
+
 db.create_all()
+
+gravatar = Gravatar(
+    app,
+    size=100,
+    rating="g",
+    default="retro",
+    force_default=False,
+    force_lower=False,
+    use_ssl=False,
+    base_url=None,
+)
 
 
 # decorator to check if user logged in is admin
@@ -138,12 +152,24 @@ def logout():
     return redirect(url_for("get_all_posts"))
 
 
-@app.route("/post/<int:post_id>")
+@app.route("/post/<int:post_id>", methods=["GET", "POST"])
 def show_post(post_id):
     requested_post = BlogPost.query.get(post_id)
-    user = User.query.get(requested_post.author_id)
+    author = User.query.get(requested_post.author_id)
     form = CommentForm()
-    return render_template("post.html", post=requested_post, user=user, form=form)
+    if form.validate_on_submit():
+        if not current_user.is_authenticated:
+            flash("You need to login to comment.")
+            return redirect(url_for("login"))
+        new_comment = Comment(
+            text=form.comment.data,
+            comment_author=current_user,
+            parent_post=requested_post,
+        )
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for("show_post", post_id=post_id))
+    return render_template("post.html", post=requested_post, author=author, form=form)
 
 
 @app.route("/about")
