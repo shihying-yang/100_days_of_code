@@ -157,4 +157,4 @@ Day 076 - Numpy and N-Dim, and manipulate images
 
 Day 077 - Linear Regression and Visualization with Seaborn: Movies budget and Gross analysis
 
-Day 078 - Nobel Prize Analysis 
+Day 078 - Plotly, Matplotlib and Seaborn with multiple charts: Nobel Prize Analysis 
