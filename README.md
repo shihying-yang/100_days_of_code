@@ -162,3 +162,6 @@ Day 078 - Plotly, Matplotlib and Seaborn with multiple charts: Nobel Prize Analy
 Day 079 - Graphs, Scipy: Germs, woman death rate in giving birth analysis
 
 Day 080 - Capstone: Boston Housing analysis
+
+Day 081 - Command line version: Text to Morse Code converter
+
