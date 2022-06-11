@@ -158,3 +158,7 @@ Day 076 - Numpy and N-Dim, and manipulate images
 Day 077 - Linear Regression and Visualization with Seaborn: Movies budget and Gross analysis
 
 Day 078 - Plotly, Matplotlib and Seaborn with multiple charts: Nobel Prize Analysis 
+
+Day 079 - Graphs, Scipy: Germs, woman death rate in giving birth analysis
+
+Day 080 - Capstone: Boston Housing analysis
