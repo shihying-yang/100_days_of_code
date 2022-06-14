@@ -165,3 +165,8 @@ Day 080 - Capstone: Boston Housing analysis
 
 Day 081 - Command line version: Text to Morse Code converter
 
+Day 082 - Professional Protfolio Project (Web dev) - Skipped
+
+Day 083 - Tic Tac Toe
+
+Day 084 - GUI Image Viewer with watermark
