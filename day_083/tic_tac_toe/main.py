@@ -1,8 +1,5 @@
 """Build a text-based version of the Tic Tac Toe game.
 """
-from cgi import print_environ
-from random import randint
-import time
 
 
 class Player:
@@ -44,6 +41,18 @@ def print_board(marks):
     print(board)
 
 
+def continue_game():
+    """check if the game should continue"""
+    continue_game = input("Do you want to continue? (y/n): ")
+    if continue_game.lower().startswith("y"):
+        return True
+    elif continue_game.lower().startswith("n"):
+        return False
+    else:
+        print("Invalid input.")
+        continue_game = continue_game()
+
+
 if __name__ == "__main__":
     marks, turns = re_init_game()
 
@@ -54,39 +63,51 @@ if __name__ == "__main__":
     p2 = Player(name2, "O")
     print(f"{p2.name}, welcome to the tic-tac-toe game, your symbol is 'X'")
 
-    # TODO: add a loop to play the game again if the user wants to
+    # initialize the game to start
     game_on = True
     while game_on:
+        # for each step, the board will be printed (with updated marks)
         print_board(marks)
+        # make sure the correct player is playing
         if turns % 2 == 0:
             player = p1
         else:
             player = p2
 
+        # If it goes this far, it can only be a tie
         if turns == 9:
             print("It's a tie!")
-            game_on = False
+            game_on = continue_game()
             continue
 
-        if not check_win(marks):
+        if not check_win(marks):  # if there is no winner, continue
             print(f"{player.name}, it is your turn.")
             correct_input = False
             loc = 0
+            # get the correct input from the player to update the board
             while not correct_input:
                 try:
                     loc = int(input("Where would you like to place your mark (1-9)? "))
+                    if loc < 1 or loc > 9:
+                        print("Please enter a number between 1 and 9.")
+                        continue
                     correct_input = True
                 except ValueError:
                     print("Please enter a number between 1 and 9.")
+                    continue
                 if marks[loc] == "X" or marks[loc] == "O":
                     print("The space is occupied. Please choose another location.")
-                    correct_input = False
 
+            # update the board if the location is correctly entered
             marks[loc] = player.symbol
-        else:
+        else:  # there is a winner
             if player == p1:
                 print(f"{p2.name}, you won!")
             else:
                 print(f"{p1.name}, you won!")
-            game_on = False
+            # Let the player choose to play the game again or not
+            game_on = continue_game()
+            # re-initialize the game
+            marks, turns = re_init_game()
+            continue
         turns += 1
